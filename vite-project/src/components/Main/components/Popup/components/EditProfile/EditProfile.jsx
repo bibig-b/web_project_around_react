@@ -1,9 +1,9 @@
 export default function EditProfile() {
     return (
-        <form class="pop-up__form">
+        <form className="pop-up__form">
         <input
           type="text"
-          class="pop-up__input"
+          className="pop-up__input"
           name="name"
           id="profile-name-input"
           placeholder="Jacques Cousteau"
@@ -11,10 +11,10 @@ export default function EditProfile() {
           minLength="2"
           maxLength="40"
         />
-        <span class="pop-up__error" id="profile-name-input-error"></span>
+        <span className="pop-up__error" id="profile-name-input-error"></span>
         <input
           type="text"
-          class="pop-up__input"
+          className="pop-up__input"
           name="role"
           id="profile-role-input"
           placeholder="Explorador"
@@ -22,7 +22,7 @@ export default function EditProfile() {
           minLength="2"
           maxLength="200"
         />
-        <span class="pop-up__error" id="profile-role-input-error"></span>
+        <span className="pop-up__error" id="profile-role-input-error"></span>
         <button type="submit" class="pop-up__submit">Salvar</button>
       </form>
     );
