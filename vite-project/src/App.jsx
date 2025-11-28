@@ -1,33 +1,52 @@
-import { useState } from 'react'
+
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import logo from '../imagens/around.png';
+import line from '../imagens/Line.png';
+import profile from '../imagens/profile.png';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className='page'>
+      <header className='header'>
+        <img src={logo} alt='logo header' className='header__logo' />
+        <img src={line} alt='linha header' className='header__line' />
+      </header>
+      <main className='content'>
+        <section className='content__profile'>
+          <div className='content__avatar-container'>
+            <img
+              src={profile}
+              alt='foto de Jacques Cousteau'
+              className='content__avatar'
+            />
+            <button
+              className='profile__avatar-edit'
+              aria-label='Alterar foto do perfil'
+            ></button>
+          </div>
+          <div className='profile'>
+            <h1 className='profile__name'>Jacques Cousteau</h1>
+            <button
+              className='profile__edit'
+              aria-label='Editar perfil'
+              type='button'
+            ></button>
+            <h2 className='profile__role'>Explorador</h2>
+          </div>
+          <button
+            className='profile__add'
+            aria-label='Adicionar cards'
+            type='button'
+          ></button>
+        </section>
+        <section className='elements'></section>
+      </main>
+      <footer className='footer'>
+        <p className='footer__copyright'>&copy; 2025 Around The U.S.</p>
+      </footer>
+    </div>
     </>
   )
 }
