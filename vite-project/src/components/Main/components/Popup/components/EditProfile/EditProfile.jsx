@@ -8,8 +8,8 @@ export default function EditProfile() {
           id="profile-name-input"
           placeholder="Jacques Cousteau"
           required
-          minlength="2"
-          maxlength="40"
+          minLength="2"
+          maxLength="40"
         />
         <span class="pop-up__error" id="profile-name-input-error"></span>
         <input
@@ -19,8 +19,8 @@ export default function EditProfile() {
           id="profile-role-input"
           placeholder="Explorador"
           required
-          minlength="2"
-          maxlength="200"
+          minLength="2"
+          maxLength="200"
         />
         <span class="pop-up__error" id="profile-role-input-error"></span>
         <button type="submit" class="pop-up__submit">Salvar</button>
