@@ -3,7 +3,7 @@ export default function Popup(props) {
 
     return (
       <div className="pop-up">
-      <div className={`pop-up__container${!title ? "pop-up__container_image" : ""}`}>
+      <div className={`pop-up__container ${!title ? " pop-up__container_image" : ""}` } >
         <button
           aria-label="Fechar"
           className="pop-up__close"

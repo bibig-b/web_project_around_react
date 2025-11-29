@@ -7,9 +7,7 @@ import EditProfile from './components/Popup/components/EditProfile/EditProfile.j
 import EditAvatar from './components/Popup/components/EditAvatar/EditAvatar.jsx';
 import ImagePopup from './components/Popup/components/ImagePopup/ImagePopup.jsx';
 
-
-
-const cards = [
+const initialCards =[
     {
       isLiked: false,
       _id: '5d1f0611d321eb4bdcd707dd',
@@ -29,13 +27,13 @@ const cards = [
   ];
 
 export default function Main() {
-const[popup,setPopup]=useState(null); 
+const[popup,setPopup] = useState(null); 
+const [cards, setCards] = useState(initialCards);
+const [selectedCard, setSelectedCard] = useState(null)
 
 const newCardPopup={ title: 'New card', children: <NewCard /> };
 const editProfilepopup={ title: 'Edit profile', children: <EditProfile /> };
 const editAvatarpopup={ title: 'Edit profile picture', children: <EditAvatar /> };
-  
-  const[selectedCard,setSelectedCard]=useState(null);
 
 function handleOpenPopup(popup) {
   setPopup(popup);
@@ -52,6 +50,17 @@ function handleOpenImagePopup(card) {
     children: <ImagePopup card={card} />,
   };
   setPopup(imagePopupObject);
+}
+
+function handleDelete(cardId) {
+    setCards(cards.filter(card => card._id !== cardId));
+}
+
+function handleLike(cardId) {
+    console.log('like clicado para card:', cardId);
+    setCards(cards.map(card => card._id === cardId
+        ? {...card, isLiked: !card.isLiked} : card
+    ))
 }
 
   return (
@@ -89,14 +98,17 @@ function handleOpenImagePopup(card) {
         </section>
         <section className='cards'>
                 {cards.map((card) => (
-                    <Card key={card._id} card={card} onImageClick={handleOpenImagePopup} />
+                    <Card
+                    key={card._id} card={card} onImageClick={handleOpenImagePopup} 
+                    onDelete= {handleDelete}
+                    onLike= {handleLike}/>
                 ))}
         </section>
         {popup && (
           <Popup onClose={handleClosePopup} title={popup.title}>
             {popup.children}
           </Popup>
-        )} 
+        )}  
       </main>
     );
 }
