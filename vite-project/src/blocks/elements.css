@@ -1,4 +1,4 @@
-.elements {
+.cards {
   max-width: 880px;
   width: 100%;
   display: grid;
@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.elements__card {
+.card {
   max-width: 282px;
   width: 100%;
   height: 361px;
@@ -18,7 +18,7 @@
   position: relative;
 }
 
-.elements__image {
+.card__image {
   max-width: 282px;
   width: 100%;
   height: 282px;
@@ -27,14 +27,14 @@
   object-fit: cover;
 }
 
-.elements__places {
+.card__description {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 15px 0 21px;
 }
 
-.elements__place {
+.card__title {
   color: #000;
   font-size: 24px;
   line-height: 100%;
@@ -45,7 +45,7 @@
   text-align: center;
 }
 
-.elements__delete-button {
+.card__delete-button {
   position: absolute;
   width: 18px;
   height: 20px;
@@ -59,17 +59,17 @@
   cursor: pointer;
 }
 
-.elements__delete-button:hover {
+.card__delete-button:hover {
   opacity: 0.5;
 }
 
-.elements__like-container {
+.card__like-container {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.elements__like {
+.card__like-button {
   background-image: url("../imagens/like.png");
   background-color: transparent;
   background-size: cover;
@@ -81,19 +81,19 @@
   height: 19px;
 }
 
-.elements__like_active {
+.card__like-button_isliked {
   background-image: url("../imagens/like_active.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.elements__like:hover {
+.card__like-button:hover {
   opacity: 0.5;
 }
 
 @media (max-width: 1024px) {
-  .elements {
+  .cards {
     grid-template-columns: repeat(2, auto);
     justify-content: center;
     margin: auto;
@@ -101,7 +101,7 @@
 }
 
 @media (max-width: 544px) {
-  .elements {
+  .cards {
     grid-template-columns: repeat(1, auto);
     justify-content: center;
     margin: auto;

@@ -5,6 +5,9 @@ import Card from './components/Popup/components/Card/Card.jsx';
 import NewCard from './components/Popup/components/NewCard/NewCard.jsx';
 import EditProfile from './components/Popup/components/EditProfile/EditProfile.jsx';
 import EditAvatar from './components/Popup/components/EditAvatar/EditAvatar.jsx';
+import ImagePopup from './components/Popup/components/ImagePopup/ImagePopup.jsx';
+
+
 
 const cards = [
     {
@@ -31,6 +34,8 @@ const[popup,setPopup]=useState(null);
 const newCardPopup={ title: 'New card', children: <NewCard /> };
 const editProfilepopup={ title: 'Edit profile', children: <EditProfile /> };
 const editAvatarpopup={ title: 'Edit profile picture', children: <EditAvatar /> };
+  
+  const[selectedCard,setSelectedCard]=useState(null);
 
 function handleOpenPopup(popup) {
   setPopup(popup);
@@ -40,9 +45,16 @@ function handleClosePopup() {
   setPopup(null);
 }
 
-  return (
+function handleOpenImagePopup(card) {
+  setSelectedCard(card);
+  const imagePopupObject = {
+    title: '',
+    children: <ImagePopup card={card} />,
+  };
+  setPopup(imagePopupObject);
+}
 
-    console.log(cards),
+  return (
     <main className='content'>
         <section className='content__profile'>
           <div className='content__avatar-container'>
@@ -75,12 +87,16 @@ function handleClosePopup() {
             onClick={() => handleOpenPopup(newCardPopup)}
           ></button>
         </section>
-        <section className='elements'></section>
+        <section className='cards'>
+                {cards.map((card) => (
+                    <Card key={card._id} card={card} onImageClick={handleOpenImagePopup} />
+                ))}
+        </section>
         {popup && (
           <Popup onClose={handleClosePopup} title={popup.title}>
             {popup.children}
           </Popup>
-        )}
+        )} 
       </main>
     );
 }
