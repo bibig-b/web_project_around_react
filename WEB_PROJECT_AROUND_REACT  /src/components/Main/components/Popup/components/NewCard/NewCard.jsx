@@ -1,9 +1,19 @@
-export default function NewCard() {
+export default function NewCard({onAddPlaceSubmit, onClose}) {
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onAddPlaceSubmit ({
+      name: e.target['card-name'].value,
+      link: e.target['card-link'].value,
+    });
+    onClose();
+  }
     return (
       <form
         className="pop-up__form"
         name="card-form"
         id="new-card-form"
+        onSubmit={handleSubmit}
       >
         <input
           className="pop-up__input"

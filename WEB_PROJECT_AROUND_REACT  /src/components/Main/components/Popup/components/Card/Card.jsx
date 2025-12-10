@@ -1,12 +1,12 @@
 export default function Card(props) {
-    const {name, link, isLiked, _id} = props.card;
-    const {onImageClick, onDelete,onLike } = props;
+    const {name, link, isLiked,_id} = props.card;
+    const {onImageClick, onCardDelete,onCardLike } = props;
 
    function handleLikeClick() {
-        onLike(_id);
+        onCardLike(props.card);
    }
     function handleDeleteClick() {
-       onDelete(_id);
+       onCardDelete(props.card);
    }
 
     return (
