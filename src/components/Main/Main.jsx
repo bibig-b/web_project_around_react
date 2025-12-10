@@ -7,7 +7,7 @@ import EditAvatar from './components/Popup/components/EditAvatar/EditAvatar.jsx'
 import ImagePopup from './components/Popup/components/ImagePopup/ImagePopup.jsx';
 import { api }from '../../utils/api.js';
 import {useContext} from 'react';
-import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 
 export default function Main({
   cards,
